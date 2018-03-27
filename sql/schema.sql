@@ -1,0 +1,9 @@
+PRAGMA foreign_keys = ON;
+
+CREATE TABLE users(
+	username VARCHAR(20) NOT NULL,
+	password BINARY(60) NOT NULL,
+	created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	PRIMARY KEY(username)
+);
+
