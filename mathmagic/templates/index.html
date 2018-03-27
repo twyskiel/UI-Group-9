@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
 
-    <link rel="stylesheet" href="../mathmagic/static/style.css">
+    <link rel="stylesheet" href="../static/css/style.css"/>
     <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="http://unpkg.com/vue"></script>
     <title>Math Magic</title>
@@ -15,8 +15,14 @@
 
     <div>
         <a href="/">Math Magic</a> <br>
+
+        {% if session["username"] %}
+          <p>Hello, {{ session["username"] }}</p>
+          <a href="accounts/logout">logout</a>
+
+        {% else %}
         <a href="accounts/login">login</a> <br>
-        <a href="accounts/logout">logout</a>
+        {% endif %}
 
     </div>
 

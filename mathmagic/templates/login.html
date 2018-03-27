@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="../static/css/style.css"/>
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="http://unpkg.com/vue"></script>
+    <title>Login</title>
+</head>
+
+ <body>
+   <div>
+       <a href="/">Math Magic</a> <br>
+  </div>
+
+   <form id="login" action="" method="post" enctype="multipart/form-data">
+      <input class="login-field" required type="text" placeholder="username" name="username"/>
+      <input class="login-field" required type="password" placeholder="password" name="password"/>
+      <input class="login-field" type="submit" value="login"/>
+   </form>
+
+
+   <div id="error-msg">
+    {% if error %}
+      <p>{{ error }}</p>
+    {% endif %}
+   </div>
+
+   <span id="account-create-msg">
+     <a> Don't have an account? </a>
+     <a href="accounts/create"><strong> Sign up </strong></a> <!--TODO: implement account creation-->
+   </span>
+
+
+
+
+
+ </body>
+</html>
