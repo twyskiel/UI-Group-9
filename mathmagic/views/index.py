@@ -56,6 +56,27 @@ def redirect_logout():
     return redirect(url_for('show_index'))
 
 
+@mathmagic.app.route('/accounts/create', methods=['GET', 'POST'])
+def create_user():
+    context = {}
+
+    if request.method == 'GET':
+        return render_template('create.html', **context)
+
+    if request.method == 'POST':
+        form = request.form
+
+        db = get_db()
+        query = 'INSERT INTO users (username, password) VALUES (?, ?)'
+        db.execute(query, (form['username'], form['password']))
+
+         # Open session with user info
+        session["username"] = form['username']
+
+        return redirect(url_for('show_index'))
+
+
+
 def verify_password(username, plaintext_pwd):
     db = get_db()
     query = 'SELECT password FROM users WHERE username=?'
@@ -67,6 +88,5 @@ def verify_password(username, plaintext_pwd):
     stored_pw = user_entry['password']
 
     return (stored_pw == plaintext_pwd)
-
 
 
