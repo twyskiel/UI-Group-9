@@ -14,23 +14,39 @@
   <div id="my-vue-app">
 
     <div>
-        <a href="/">Math Magic</a> <br>
+      <a href="">Math Magic</a> <br>
+      <p v-if="logged_in">
+        Hello, {{ username }} <br>
+        <a href="accounts/logout">logout</a>
+      </p>
+      <p v-else>
+        <a href="accounts/login">login</a>
+      </p>
+    </div>
 
-        {% if session["username"] %}
-          <p>Hello, {{ session["username"] }}</p>
-          <a href="accounts/logout">logout</a>
-
-        {% else %}
-        <a href="accounts/login">login</a> <br>
-        {% endif %}
-
+    <div>
+      <button v-if="problem == ''" @click="new_problem">Generate Problem!</button>
+      <div v-else-if="status == 0">
+        <p>
+          {{problem}} = ?
+        </p>
+        <input v-model="user_answer" type="text">
+        <button @click="check_answer">Submit</button>
+      </div>
+      <div v-else-if="status > 0">
+        <p>Correct answer!</p>
+        <button @click="new_problem">Generate Problem!</button>
+      </div>
+      <div v-else-if="status < 0">
+        <p>Sorry, the right answer was {{answer}}</p>
+        <button @click="new_problem">Generate Problem!</button>
+      </div>
     </div>
 
 
   </div>
-
 </body>
 
-<script src="vue.js"></script>
+<script src="../js/vue.js"></script>
 
 </html>
