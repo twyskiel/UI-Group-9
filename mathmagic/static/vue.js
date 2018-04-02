@@ -1,4 +1,5 @@
 var App = new Vue({
+  delimiters: ['${', '}'],
   el: '#my-vue-app',
   data: {
     logged_in: false,

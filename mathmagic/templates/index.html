@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../static/css/style.css"/>
     <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="http://unpkg.com/vue"></script>
-    <title>Math Magic</title>
+        <title>Math Magic</title>
 </head>
 
 <body>
@@ -15,20 +15,23 @@
 
     <div>
       <a href="">Math Magic</a> <br>
-      <p v-if="logged_in">
-        Hello, {{ username }} <br>
-        <a href="accounts/logout">logout</a>
-      </p>
-      <p v-else>
-        <a href="accounts/login">login</a>
-      </p>
+      {% if session["username"] %}
+        <p>
+          Hello, {{ session["username"] }} <br>
+          <a href="accounts/logout">logout</a>
+        </p>
+      {% else %}
+        <p>
+          <a href="accounts/login">login</a>
+        </p>
+      {% endif %}
     </div>
 
     <div>
       <button v-if="problem == ''" @click="new_problem">Generate Problem!</button>
       <div v-else-if="status == 0">
         <p>
-          {{problem}} = ?
+          ${ problem } = ?
         </p>
         <input v-model="user_answer" type="text">
         <button @click="check_answer">Submit</button>
@@ -38,7 +41,7 @@
         <button @click="new_problem">Generate Problem!</button>
       </div>
       <div v-else-if="status < 0">
-        <p>Sorry, the right answer was {{answer}}</p>
+        <p>Sorry, the right answer was ${ answer }</p>
         <button @click="new_problem">Generate Problem!</button>
       </div>
     </div>
@@ -47,6 +50,6 @@
   </div>
 </body>
 
-<script src="../js/vue.js"></script>
+<script src="{{url_for('static', filename='vue.js')}}"></script>
 
 </html>
