@@ -24,7 +24,7 @@
       <input type="checkbox" id="add-box" value=" + " v-model="opsChecked">Addition</input>
       <input type="checkbox" id="sub-box" value=" - " v-model="opsChecked">Subtraction</input>
       <input type="checkbox" id="mult-box" value=" * " v-model="opsChecked">Multiplication</input>
-      <input type="checkbox" id="divison-box" value=" / " v-model="opsChecked">Divison</input>
+      <input type="checkbox" id="divison-box" value=" / " v-model="opsChecked">Division</input>
       <p v-if="opsChecked.length===0">Please check at least one box!</p>
 
     </div>
@@ -52,5 +52,3 @@
       <p>Your score: ${score}</p>
     </div>
 {% endblock %}
-
-
