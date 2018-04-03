@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" href="../static/css/style.css"/>
+		<script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+		<script src="http://unpkg.com/vue"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		{% block headinfo %}{% endblock %}
+	</head>
+	<body>
+		<header>
+			<nav class="navbar navbar-inverse">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<a class="navbar-brand" href="/">Math Magic</a>
+					</div>
+					<ul class="nav navbar-nav">
+						<li><a href="/"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="/accounts/create"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+						<li><a href="/accounts/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+				</div>
+			</nav>
+		</header>
+		<div class="container-fluid" id="my-vue-app">
+			{% block content %}{% endblock %}
+		</div>
+	</body>
+</html>

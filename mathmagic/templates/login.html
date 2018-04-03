@@ -1,26 +1,31 @@
-<!DOCTYPE html>
-<html>
+{% extends "base.html" %}
 
-<head>
-    <meta charset="utf-8">
+{% block headinfo %}
+	<title>Login to your account</title>
+{% endblock %}
 
-    <link rel="stylesheet" href="../static/css/style.css"/>
-    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <script src="http://unpkg.com/vue"></script>
-    <title>Login</title>
-</head>
-
- <body>
-   <div>
-       <a href="/">Math Magic</a> <br>
-  </div>
-
-   <form id="login" action="" method="post" enctype="multipart/form-data">
-      <input class="login-field" required type="text" placeholder="username" name="username"/>
-      <input class="login-field" required type="password" placeholder="password" name="password"/>
-      <input class="login-field" type="submit" value="login"/>
-   </form>
-
+{% block content %}
+	<div class="col-md-4">
+		<div class="panel panel-primary" id="login-panel">
+			<div class="panel-heading"> User Login </div>
+			<div class="panel-body">
+			   <form id="login" action="" method="post" enctype="multipart/form-data">
+				  <div class="form-group">
+					<label for="usrname"> Username: </label>
+					<input class="login-field form-control" required type="text" placeholder="Enter your username" name="username" id="usrname"/>
+				  </div>
+				  <div class="form-group">
+					<label for="pwd"> Password: </label>
+					<input class="login-field form-control" required type="password" placeholder="Enter your password" name="password" id="pwd"/>
+				  </div>
+				  <input class="login-field btn btn-primary" type="submit" value="Login"/>
+			   </form>
+			</div>
+			<div class="panel-footer" id="account-create-msg">
+				Don't have an account? <a href="/accounts/create"><strong> Sign Up! </strong></a>
+			</div>
+		</div>
+	</div>
 
    <div id="error-msg">
     {% if error %}
@@ -28,14 +33,4 @@
     {% endif %}
    </div>
 
-   <span id="account-create-msg">
-     <a> Don't have an account? </a>
-     <a href="/accounts/create"><strong> Sign up </strong></a> <!--TODO: implement account creation-->
-   </span>
-
-
-
-
-
- </body>
-</html>
+{% endblock %}
