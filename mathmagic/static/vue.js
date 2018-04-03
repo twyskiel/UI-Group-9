@@ -11,7 +11,8 @@ var App = new Vue({
     b: 0,
     o: 0,
     ops: [" + ", " - ", " * ", " / "],
-    status: 0   // 0 if waiting for answer, 1 if correct, -1 if wrong
+    status: 0,   // 0 if waiting for answer, 1 if correct, -1 if wrong
+    score: 0
   },
   methods: {
     new_problem: function() {
@@ -34,8 +35,12 @@ var App = new Vue({
       this.problem = this.a.toString() + op + this.b.toString()
     },
     check_answer: function() {
-      if (this.user_answer == this.answer) this.status = 1
-      else this.status = -1
+      if (this.user_answer == this.answer) {
+        this.status = 1;
+      } else {
+        this.status = -1;
+      }
+      this.score += this.status;
     }
   }
 })
