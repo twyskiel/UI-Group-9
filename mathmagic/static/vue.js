@@ -17,7 +17,7 @@ var App = new Vue({
   methods: {
     new_problem: function() {
       this.status = 0
-      this.user_answer = 0
+      this.user_answer = ""
       this.a = Math.floor((Math.random() * 10) + 1)
       this.b = Math.floor((Math.random() * 10) + 1)
       this.o = Math.floor(Math.random() * 4)
