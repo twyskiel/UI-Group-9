@@ -2,36 +2,55 @@
 
 {% block headinfo %}
 	<title>Math Magic!</title>
-	<script src="../js/vue.js"></script>
+	<script src="{{url_for('static', filename='vue.js')}}"></script>
 {% endblock %}
 
 {% block content %}
     <div>
-      <p v-if="logged_in">
-        Hello, {{ username }} <br>
-        <a href="accounts/logout">logout</a>
-      </p>
-      <p v-else>
-        <a href="accounts/login">login</a>
-      </p>
+      {% if session["username"] %}
+        <p>
+          Hello, {{ session["username"] }} <br>
+          <a href="accounts/logout">logout</a>
+        </p>
+      {% else %}
+        <p>
+          <a href="accounts/login">login</a>
+        </p>
+      {% endif %}
     </div>
 
     <div>
-      <button v-if="problem == ''" @click="new_problem">Generate Problem!</button>
+      <p>What kind of math would you like to practice today?</p>
+      <input type="checkbox" id="add-box" value=" + " v-model="opsChecked">Addition</input>
+      <input type="checkbox" id="sub-box" value=" - " v-model="opsChecked">Subtraction</input>
+      <input type="checkbox" id="mult-box" value=" * " v-model="opsChecked">Multiplication</input>
+      <input type="checkbox" id="divison-box" value=" / " v-model="opsChecked">Divison</input>
+      <p v-if="opsChecked.length===0">Please check at least one box!</p>
+
+    </div>
+
+
+    <div>
+      <button v-if="problem == ''" @click="new_problem" v-bind:disabled="opsChecked.length===0">Generate Problem!</button>
       <div v-else-if="status == 0">
         <p>
-          {{problem}} = ?
+          ${ problem } = ?
         </p>
         <input v-model="user_answer" type="text">
         <button @click="check_answer">Submit</button>
       </div>
       <div v-else-if="status > 0">
         <p>Correct answer!</p>
-        <button @click="new_problem">Generate Problem!</button>
+        <button @click="new_problem" v-bind:disabled="opsChecked.length===0">Generate Problem!</button>
       </div>
       <div v-else-if="status < 0">
-        <p>Sorry, the right answer was {{answer}}</p>
-        <button @click="new_problem">Generate Problem!</button>
+        <p>Sorry, the right answer was ${ answer }</p>
+        <button @click="new_problem" v-bind:disabled="opsChecked.length===0">Generate Problem!</button>
       </div>
     </div>
+	<div>
+      <p>Your score: ${score}</p>
+    </div>
 {% endblock %}
+
+
