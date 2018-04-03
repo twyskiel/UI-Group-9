@@ -28,7 +28,18 @@
     </div>
 
     <div>
-      <button v-if="problem == ''" @click="new_problem">Generate Problem!</button>
+      <p>What kind of math would you like to practice today?</p>
+      <input type="checkbox" id="add-box" value=" + " v-model="opsChecked">Addition</input>
+      <input type="checkbox" id="sub-box" value=" - " v-model="opsChecked">Subtraction</input>
+      <input type="checkbox" id="mult-box" value=" * " v-model="opsChecked">Multiplication</input>
+      <input type="checkbox" id="divison-box" value=" / " v-model="opsChecked">Divison</input>
+      <p v-if="opsChecked.length===0">Please check at least one box!</p>
+
+    </div>
+
+
+    <div>
+      <button v-if="problem == ''" @click="new_problem" v-bind:disabled="opsChecked.length===0">Generate Problem!</button>
       <div v-else-if="status == 0">
         <p>
           ${ problem } = ?
@@ -38,11 +49,11 @@
       </div>
       <div v-else-if="status > 0">
         <p>Correct answer!</p>
-        <button @click="new_problem">Generate Problem!</button>
+        <button @click="new_problem" v-bind:disabled="opsChecked.length===0">Generate Problem!</button>
       </div>
       <div v-else-if="status < 0">
         <p>Sorry, the right answer was ${ answer }</p>
-        <button @click="new_problem">Generate Problem!</button>
+        <button @click="new_problem" v-bind:disabled="opsChecked.length===0">Generate Problem!</button>
       </div>
     </div>
     <div>

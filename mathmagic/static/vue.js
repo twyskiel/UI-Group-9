@@ -12,7 +12,8 @@ var App = new Vue({
     o: 0,
     ops: [" + ", " - ", " * ", " / "],
     status: 0,   // 0 if waiting for answer, 1 if correct, -1 if wrong
-    score: 0
+    score: 0,
+    opsChecked: [" + ", " - ", " * ", " / "]
   },
   methods: {
     new_problem: function() {
@@ -20,8 +21,8 @@ var App = new Vue({
       this.user_answer = ""
       this.a = Math.floor((Math.random() * 10) + 1)
       this.b = Math.floor((Math.random() * 10) + 1)
-      this.o = Math.floor(Math.random() * 4)
-      var op = this.ops[this.o]
+      this.o = Math.floor(Math.random() * this.opsChecked.length)
+      var op = this.opsChecked[this.o]
       if (op == " + ") {
         this.answer = this.a + this.b
       } else if (op == " - ") {
