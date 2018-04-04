@@ -1,6 +1,4 @@
 $(document).ready( function() {
-
-
   var App = new Vue({
     delimiters: ['${', '}'],
     el: '#my-vue-app',
@@ -40,8 +38,12 @@ $(document).ready( function() {
       },
       check_answer: function() {
         if (this.user_answer == this.answer) {
+          var audio = new Audio('static/correct.wav');
+          audio.play();
           this.status = 1;
         } else {
+          var audio = new Audio('static/wrong.wav');
+          audio.play();
           this.status = -1;
         }
         this.score += this.status;
