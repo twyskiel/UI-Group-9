@@ -21,7 +21,7 @@
         <p>
           ${ problem } = ?
         </p>
-        <input v-focus id="user_input" v-model="user_answer" type="text" @keyup.enter="check_answer">
+        <input v-focus id="user_input" v-model="user_answer" type="text" @keydown.enter="check_answer">
         <button @click="check_answer">Submit</button>
       </div>
       <div v-else-if="status > 0">
