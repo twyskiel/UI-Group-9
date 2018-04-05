@@ -34,6 +34,9 @@
       </div>
     </div>
 	<div>
-    <p><br>Your score: ${score}</p>
+    <span><br>Your score: ${score}</span>   <button @click="reset_score">Reset</button>
+		<p>Percent right: ${percentRight}%</p>
+		<br>
+		<p>High score: ${highScore}</p>
   </div>
 {% endblock %}
