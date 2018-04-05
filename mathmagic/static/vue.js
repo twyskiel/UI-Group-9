@@ -60,8 +60,10 @@ $(document).ready( function() {
       reset_score: function() {
         this.score = 0;
         this.numAttempted = 0;
+        this.numCorrect = 0;
         this.percentRight = 0;
         this.status = 0;
+        this.problem = "";
       }
     },
     directives: {
