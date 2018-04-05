@@ -38,7 +38,8 @@ $(document).ready( function() {
           this.answer = Math.floor((Math.random() * 10) + 1)
           this.a = this.b * this.answer
         }
-        this.problem = this.a.toString() + op + this.b.toString()
+        this.problem = this.a.toString() + op + this.b.toString();
+        $('#user_input').focus();
       },
       check_answer: function() {
         if (this.user_answer == this.answer) {
@@ -61,6 +62,14 @@ $(document).ready( function() {
         this.numAttempted = 0;
         this.percentRight = 0;
         this.status = 0;
+      }
+    },
+    directives: {
+      focus: {
+        // directive definition
+        inserted: function (el) {
+          el.focus();
+        }
       }
     }
   })
