@@ -18,7 +18,11 @@ $(document).ready( function() {
       numAttempted: 0,
       numCorrect: 0,
       percentRight: 0,
-      highScore: 0
+      highScore: 0,
+	  not_running: true,
+	  paused: true,
+	  intId: 0,
+	  playerPos: 10
     },
     methods: {
       new_problem: function() {
@@ -64,7 +68,45 @@ $(document).ready( function() {
         this.percentRight = 0;
         this.status = 0;
         this.problem = "";
-      }
+      },
+	  run: function() {
+		  var race_length = $("#gamecontent").width()
+		  if (this.playerPos >= race_length - 215)
+		  {
+			  clearInterval(this.intId);
+			  this.not_running = true;
+			  this.paused = true;
+		  }
+		  else
+		  {
+			  this.playerPos++;
+			  $("#p2").css("left", this.playerPos + "px");
+		  }
+	  },
+	  begin_anim: function() {
+		  this.not_running = false;
+		  this.paused = false;
+		  this.playerPos = 10;
+		  $("#p2").css("left", this.playerPos + "px");
+		  this.intId = setInterval(this.run, 25);
+	  },
+	  pause_anim: function() {
+		  this.not_running = false;
+		  this.paused = true;
+		  clearInterval(this.intId);
+	  },
+	  resume_anim: function() {
+		  this.not_running = false;
+		  this.paused = false;
+		  this.intId = setInterval(this.run, 25);
+	  },
+	  restart_anim: function() {
+		  this.not_running = true;
+		  this.paused = true;
+		  this.playerPos = 10;
+		  $("#p2").css("left", this.playerPos + "px");
+		  clearInterval(this.intId);
+	  }
     },
     directives: {
       focus: {

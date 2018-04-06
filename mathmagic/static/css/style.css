@@ -1,7 +1,76 @@
 #usrname {
-	width:200px;
+	width:275px;
 }
 
 #pwd {
-	width:200px;
+	width:275px;
+}
+
+#p1 {
+	width: 225px;
+	position: absolute;
+	left: 15px;
+	top: 50px;
+}
+
+#p2 {
+	width: 225px;
+	position: absolute;
+	left: 15px;
+	top: 145px;
+}
+
+#gamecontent {
+	width:97%;
+	height: 420px;
+	position: relative;
+	left: 20px;
+	border-style: groove;
+	border-color: green;
+	border-width: 5px;
+	padding: 15px;
+}
+
+#scorebox {
+	position: absolute;
+	right: 25px;
+	top: 25px;
+	width: 175px;
+	height: 130px;
+	border-style: groove;
+	border-color: red;
+	border-width: 5px;
+	text-align: center;
+	font-size: 16px;
+	font-family: Tahoma, Geneva, sans-serif;
+	padding-top: 15px;
+}
+
+#highscore {
+	position: absolute;
+	right: 225px;
+	top: 25px;
+	width: 175px;
+	height: 130px;
+	border-style: groove;
+	border-color: cyan;
+	border-width: 5px;
+	text-align: center;
+	font-size: 16px;
+	font-family: Tahoma, Geneva, sans-serif;
+	padding-top: 15px;
+}
+
+#hightext {
+	font-size: 18px;
+}
+
+#carbox {
+	position: relative;
+	top: 50px;
+}
+
+#highScore {
+	position: relative;
+	bottom: 15px;
 }
