@@ -22,13 +22,14 @@
 
 #gamecontent {
 	width:97%;
-	height: 420px;
+	height: 650px;
 	position: relative;
 	left: 20px;
 	border-style: groove;
 	border-color: green;
 	border-width: 5px;
 	padding: 15px;
+	perspective: 800px;
 }
 
 #scorebox {
@@ -73,4 +74,85 @@
 #highScore {
 	position: relative;
 	bottom: 15px;
+}
+
+.card {
+	-webkit-animation: movein 1s ;
+	-webkit-animation-timing-function: ease;
+	position: relative;
+	top: 10;
+	left: 0px;
+	width: 300px;
+	height: 200px;
+	margin: 10px;
+	background: yellow;
+	border-color: blue;
+	border-width: 5px;
+	display: flex;
+	text-align: center;
+	justify-content: center;
+	border: 3px solid #fff;
+    box-shadow: 0 1px 2px 2px rgba(0,0,0,.2);
+  	font-size: 3em;
+  	font-weight: 300;
+}
+
+#back1 {
+	position: relative;
+	top: 10;
+	left: 0px;
+	width: 300px;
+	height: 200px;
+	margin: 10px;
+	background: orange;
+	border-color: blue;
+	border-width: 5px;
+	display: flex;
+	text-align: center;
+	justify-content: center;
+	border: 3px solid #fff;
+    box-shadow: 0 1px 2px 2px rgba(0,0,0,.2);
+  	font-size: 2em;
+  	font-weight: 300;
+}
+
+#back2 {
+	position: relative;
+	top: 10;
+	left: 0px;
+	width: 300px;
+	height: 200px;
+	margin: 10px;
+	background: green;
+	border-color: blue;
+	border-width: 5px;
+	display: flex;
+	text-align: center;
+	justify-content: center;
+	border: 3px solid #fff;
+    box-shadow: 0 1px 2px 2px rgba(0,0,0,.2);
+  	font-size: 2em;
+  	font-weight: 300;
+  	
+}
+
+.flipped{
+	-webkit-transform-style: preserve-3d;
+  	-webkit-transition: transform 1s;
+	-webkit-transform: rotateY( 360deg );
+}
+
+@keyframes movein {
+    from {left: 400px;}
+    to {left: 0px;}
+}
+
+.btn_on:hover {
+	background: #518AFA;
+	color:white;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+#selection{
+	font-size: 18px;
 }

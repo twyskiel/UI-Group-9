@@ -7,7 +7,7 @@
 
 {% block content %}
 <div id="gamecontent">
-    <div>
+    <div id="selection">
       <p>What kind of math would you like to practice today?</p>
       <input type="checkbox" id="add-box" value=" + " v-model="opsChecked">Addition</input>
       <input type="checkbox" id="sub-box" value=" - " v-model="opsChecked">Subtraction</input>
@@ -17,21 +17,21 @@
     </div>
 
     <div>
-      <button v-if="problem == ''" @click="new_problem" v-bind:disabled="opsChecked.length===0">Generate Problem!</button>
+      <button v-if="problem == ''" @click="new_problem" v-bind:disabled="opsChecked.length===0" class="btn btn_on">Generate Problem!</button>
       <div v-else-if="status == 0">
-        <p>
+        <p class = "card">
           ${ problem } = ?
         </p>
         <input v-focus id="user_input" v-model="user_answer" type="text" @keydown.enter="check_answer">
-        <button @click="check_answer">Submit</button>
+        <button class="btn btn_on" @click="check_answer">Submit</button>
       </div>
       <div v-else-if="status > 0">
-        <p>Correct answer!</p>
-        <button @click="new_problem" v-bind:disabled="opsChecked.length===0">Generate Problem!</button>
+        <p id = "back2" class = "flipped">Correct answer!</p>
+        <button class="btn btn_on" @click="new_problem" v-bind:disabled="opsChecked.length===0">Generate Problem!</button>
       </div>
       <div v-else-if="status < 0">
-        <p>Sorry, the right answer was ${ answer }</p>
-        <button @click="new_problem" v-bind:disabled="opsChecked.length===0">Generate Problem!</button>
+        <p id = "back1" class = "flipped">Sorry, the right answer was ${ answer }</p>
+        <button class="btn btn_on" @click="new_problem" v-bind:disabled="opsChecked.length===0">Generate Problem!</button>
       </div>
     </div>
 	<div id="scorebox">
