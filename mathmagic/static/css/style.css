@@ -165,3 +165,39 @@
 	left: 15px;
 	position: absolute;
 }
+
+#dimmer {
+	z-index: 10;
+	top: -77px;
+	bottom: -650px;
+	right: -40px;
+	left: -40px;
+	background-color:  rgb(0,0,0);
+	background-color:  rgba(0,0,0,0.5);
+	position:  absolute;
+}
+
+#alertcontainer {
+	right: 200px;
+	position: absolute;
+	left: 200px;
+	top: 200px;
+	height: 200px;
+	background-color: white;
+	z-index:  11;
+	border-radius:  25px;
+}
+
+#alertbox {
+	position: relative;
+	width: 250px;
+	height: 50px;
+	margin:  auto;
+	top: 64.5px;
+}
+
+#alertbox p {
+	font-size: 50px;
+	text-align:  center;
+	background-color:  white;
+}

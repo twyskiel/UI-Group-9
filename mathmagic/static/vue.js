@@ -72,9 +72,8 @@ $(document).ready( function() {
       },
   	  run: function() {
   		  if (this.cpuPos >= 1) {
-  			  clearInterval(this.intId);
-  			  this.not_running = true;
-  			  this.paused = true;
+  			  this.pause_anim();
+          this.status = -1;
   		  } else {
           var race_length = $("#gamecontent").width();
           this.cpuPos = this.cpuPos + (1/2400);
