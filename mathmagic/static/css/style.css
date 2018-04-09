@@ -201,3 +201,7 @@
 	text-align:  center;
 	background-color:  white;
 }
+
+[v-cloak] {
+	display: none;
+}
