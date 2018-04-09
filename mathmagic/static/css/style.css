@@ -205,3 +205,16 @@
 [v-cloak] {
 	display: none;
 }
+
+#race-sb {
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	font-size: 30px;
+	padding: 5px;
+	padding-left: 15px;
+	padding-right: 15px;
+	background-color:  rgb(255,255,255);
+	background-color: rgba(0,0,0,0.2);
+	border-radius:  5px;
+}
