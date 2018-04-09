@@ -8,3 +8,4 @@ __pycache__/
 env/
 var/
 venv/
+mathmagic/run.sh
