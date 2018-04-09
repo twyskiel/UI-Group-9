@@ -7,6 +7,7 @@
 
 {% block content %}
 <div id="gamecontent">
+	<div v-if="mode == 'flash'">
     <div id="selection">
       <p>What kind of math would you like to practice today?</p>
       <input type="checkbox" id="add-box" value=" + " v-model="opsChecked">Addition</input>
@@ -15,7 +16,6 @@
       <input type="checkbox" id="divison-box" value=" / " v-model="opsChecked">Division</input>
       <p v-if="opsChecked.length===0">Please check at least one box!</p><p></p>
     </div>
-
     <div>
       <button v-if="problem == ''" @click="new_problem" v-bind:disabled="opsChecked.length===0" class="btn btn_on">Generate Problem!</button>
       <div v-else-if="status == 0">
@@ -34,27 +34,37 @@
         <button class="btn btn_on" @click="new_problem" v-bind:disabled="opsChecked.length===0">Generate Problem!</button>
       </div>
     </div>
-	<div id="scorebox">
-		<span><strong>Your score:</strong> ${score}</span>
-		<p><strong>Percent right:</strong> ${percentRight.toFixed(0)}%</p>
-		<button @click="reset_score" class="btn btn-danger">Reset</button>
-	</div>
-	<div id="highscore">
-		<p><strong>CURRENT HIGH SCORE:</strong></p>
-		<p id="hightext">${highScore}</p>
-	</div>
-	<div id="carbox">
-		<div v-if="not_running">
-			<button class="btn btn-success" @click="begin_anim">Start Game!</button>
+		<div id="scorebox">
+			<span><strong>Your score:</strong> ${score}</span>
+			<p><strong>Percent right:</strong> ${percentRight.toFixed(0)}%</p>
+			<button @click="reset_score" class="btn btn-danger">Reset</button>
 		</div>
-		<div v-else>
-			<button v-if="paused" class="btn btn-info" @click="resume_anim">Resume Game</button>
-			<button v-else class="btn btn-warning" @click="pause_anim">Pause Game</button>
-			<button class="btn btn-danger" @click="restart_anim">Restart Game</button>
+		<div id="highscore">
+			<p><strong>CURRENT HIGH SCORE:</strong></p>
+			<p id="hightext">${highScore}</p>
 		</div>
-		<img src="https://www.gamedevmarket.net/inc/uploads/f719d207aee6e1db9f15cac81c1bd59ca7856ccb.gif" id="p1"></img>
-		<br>
-		<img src="https://www.gamedevmarket.net/inc/uploads/0c3d3a1e1403b36c2120361ea93e03a799a96035.gif" id="p2"></img>
+		<br><button @click="to_race" class="btn btn-on switch-btn">Switch to Race mode</button>
+	</div>
+
+	<div v-else>
+		<div id="carbox">
+			<div v-if="not_running">
+				<p>Get 10 points before the CPU reaches the finish line!</p>
+				<p>Use the enter key to submit your answer for each question.</p>
+				<button class="btn btn-success" @click="begin_anim">Start Game!</button>
+			</div>
+			<div v-else>
+				<button v-if="paused && status == 0" class="btn btn-info" @click="resume_anim">Resume Game</button>
+				<button v-else-if="status == 0" class="btn btn-warning" @click="pause_anim">Pause Game</button>
+				<button class="btn btn-danger" @click="restart_anim">Restart Game</button><br><br>
+				<span>${problem} = </span>
+				<input v-focus id="user_input" v-model="user_answer" type="text" :disabled="status != 0" @keydown.enter="race_check_ans">
+			</div>
+			<img src="https://www.gamedevmarket.net/inc/uploads/f719d207aee6e1db9f15cac81c1bd59ca7856ccb.gif" id="p1"></img>
+			<br>
+			<img src="https://www.gamedevmarket.net/inc/uploads/0c3d3a1e1403b36c2120361ea93e03a799a96035.gif" id="p2"></img>
+		</div>
+		<br><button @click="to_flash" class="btn btn-on switch-btn">Switch to Flashcard mode</button>
 	</div>
 </div>
 {% endblock %}

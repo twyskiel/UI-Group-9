@@ -19,10 +19,11 @@ $(document).ready( function() {
       numCorrect: 0,
       percentRight: 0,
       highScore: 0,
-	  not_running: true,
-	  paused: true,
-	  intId: 0,
-	  playerPos: 10
+	    not_running: true,
+	    paused: true,
+	    intId: 0,
+	    mode: "flash",
+      cpuPos: 0.0
     },
     methods: {
       new_problem: function() {
@@ -69,44 +70,67 @@ $(document).ready( function() {
         this.status = 0;
         this.problem = "";
       },
-	  run: function() {
-		  var race_length = $("#gamecontent").width()
-		  if (this.playerPos >= race_length - 215)
-		  {
-			  clearInterval(this.intId);
-			  this.not_running = true;
-			  this.paused = true;
-		  }
-		  else
-		  {
-			  this.playerPos++;
-			  $("#p2").css("left", this.playerPos + "px");
-		  }
-	  },
-	  begin_anim: function() {
-		  this.not_running = false;
-		  this.paused = false;
-		  this.playerPos = 10;
-		  $("#p2").css("left", this.playerPos + "px");
-		  this.intId = setInterval(this.run, 25);
-	  },
-	  pause_anim: function() {
-		  this.not_running = false;
-		  this.paused = true;
-		  clearInterval(this.intId);
-	  },
-	  resume_anim: function() {
-		  this.not_running = false;
-		  this.paused = false;
-		  this.intId = setInterval(this.run, 25);
-	  },
-	  restart_anim: function() {
-		  this.not_running = true;
-		  this.paused = true;
-		  this.playerPos = 10;
-		  $("#p2").css("left", this.playerPos + "px");
-		  clearInterval(this.intId);
-	  }
+  	  run: function() {
+  		  if (this.cpuPos >= 1) {
+  			  clearInterval(this.intId);
+  			  this.not_running = true;
+  			  this.paused = true;
+  		  } else {
+          var race_length = $("#gamecontent").width();
+          this.cpuPos = this.cpuPos + (1/2400);
+          var position = (race_length-250) * this.cpuPos + 10;
+  			  $("#p2").css("left", position + "px");
+  		  }
+  	  },
+  	  begin_anim: function() {
+        this.not_running = false;
+  		  this.paused = false;
+  		  this.cpuPos = 0.0;
+        $("#p1").css("left", "10px");
+        $("#p2").css("left", "10px");
+  		  this.intId = setInterval(this.run, 25);
+        this.new_problem();
+  	  },
+  	  pause_anim: function() {
+  		  this.not_running = false;
+  		  this.paused = true;
+  		  clearInterval(this.intId);
+  	  },
+  	  resume_anim: function() {
+  		  this.not_running = false;
+  		  this.paused = false;
+  		  this.intId = setInterval(this.run, 25);
+  	  },
+  	  restart_anim: function() {
+  		  this.not_running = true;
+  		  this.paused = true;
+  		  this.cpuPos = 0.0;
+        $("#p1").css("left", "10px");
+        $("#p2").css("left", "10px");
+  		  clearInterval(this.intId);
+        this.reset_score();
+        this.status = 0;
+  	  },
+      race_check_ans: function() {
+        this.check_answer();
+        var race_length = $("#gamecontent").width();
+        var position = (race_length-250) * this.score / 10;
+        $("#p1").css("left", position + "px");
+        if (this.score == 10) {
+          this.pause_anim();
+          this.status = 1;
+        } else {
+          this.new_problem();
+        }
+      },
+      to_flash: function() {
+        this.reset_score();
+        this.mode = "flash";
+      },
+      to_race: function() {
+        this.reset_score();
+        this.mode = "race";
+      }
     },
     directives: {
       focus: {
