@@ -22,13 +22,15 @@
 
 #gamecontent {
 	width:97%;
-	height: 650px;
-	position: relative;
+	height: 75%;
+	min-height: 300px;
+	max-height: 600px;
+	position: absolute;
 	left: 20px;
 	border-style: groove;
 	border-color: green;
 	border-width: 5px;
-	padding: 15px;
+	padding: 40px;
 	perspective: 800px;
 }
 
@@ -77,6 +79,7 @@
 }
 
 .card {
+	padding: 50px;
 	-webkit-animation: movein 1s ;
 	-webkit-animation-timing-function: ease;
 	padding: 50px;
@@ -161,8 +164,8 @@
 }
 
 .switch-btn {
-	bottom: 15px;
-	left: 15px;
+	bottom: 30px;
+	left: 40px;
 	position: absolute;
 }
 
@@ -217,4 +220,23 @@
 	background-color:  rgb(255,255,255);
 	background-color: rgba(0,0,0,0.2);
 	border-radius:  5px;
+}
+
+footer{
+  height: 50px;
+  background-color: black;
+  line-height: 50px;
+  text-align: center;
+  color: grey;
+  position: fixed;
+  bottom:0px;
+  width:100%;
+}
+
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
 }

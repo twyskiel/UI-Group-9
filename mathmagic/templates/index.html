@@ -49,7 +49,7 @@
 	<div v-else>
 		<div id="carbox">
 			<div id="race-sb"><strong>Score: ${score}</strong></div>
-			<div v-if="not_running">
+			<div v-if="not_running" id="selection">
 				<p>Get 10 points before the CPU reaches the finish line!</p>
 				<p>Use the enter key to submit your answer for each question.</p>
 				<button class="btn btn-success" @click="begin_anim">Start Game!</button>
