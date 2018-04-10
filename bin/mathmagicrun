@@ -1,0 +1,10 @@
+#!/bin/bash
+
+
+# set environment variables
+export FLASK_DEBUG=True
+export FLASK_APP=mathmagic
+export MATHMAGIC_SETTINGS=config.py
+
+# run server
+flask run --host 0.0.0.0 --port 5000

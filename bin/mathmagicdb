@@ -1,0 +1,59 @@
+#!/bin/bash
+# mathmagicdb
+
+# Stop on errors
+set -e
+
+# Sanity check command line options
+usage() {
+  echo "Usage: $0 (create|destroy|reset|dump)"
+}
+
+if [ $# -ne 1 ]; then
+  usage
+  exit 1
+fi
+
+# Parse argument.  $1 is the first argument
+case $1 in
+  "create")
+
+    if [ "$(ls -A var)" ]; then
+      echo "Error: database already exists"
+    else
+      mkdir -p var
+      echo "+ mkdir -p var"
+      sqlite3 var/mathmagic.sqlite3 < sql/schema.sql
+      echo "+ sqlite3 var/mathmagic.sqlite3 < sql/schema.sql"
+      sqlite3 var/mathmagic.sqlite3 < sql/data.sql
+      echo "+ sqlite3 var/mathmagic.sqlite3 < sql/data.sql"
+    fi
+    ;;
+
+  "destroy")
+    rm -rf var/mathmagic.sqlite3
+    echo "+ rm -rf var/mathmagic.sqlite3"
+    ;;
+
+  "reset")
+    rm -rf var/mathmagic.sqlite3 
+    echo "+ rm -rf var/mathmagic.sqlite3"
+    sqlite3 var/mathmagic.sqlite3 < sql/schema.sql
+    echo "+ sqlite3 var/mathmagic.sqlite3 < sql/schema.sql"
+    sqlite3 var/mathmagic.sqlite3 < sql/data.sql
+    echo "+ sqlite3 var/mathmagic.sqlite3 < sql/data.sql"
+    ;;
+
+  "dump")
+   if [ -e var/mathmagic.sqlite3 ]; then
+      echo "+ sqlite3 -batch -line var/mathmagic.sqlite3 'SELECT * FROM users'"
+      sqlite3 -batch -line var/mathmagic.sqlite3 'SELECT * FROM users'
+    else
+      echo "Error: filename mathmagic.sqlite3 does not exist"
+    fi
+    ;;
+  *)
+    usage
+    exit 1
+    ;;
+esac
