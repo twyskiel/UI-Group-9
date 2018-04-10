@@ -1,0 +1,18 @@
+Race images - finish line, checkered flag on start (Michael)
+Race sounds? Engine vroom
+
+Difficulty setting - easy, medium, hard. Radio button selector (Noah)
+
+High score - preset, event on achieve high score (Teresa)
+
+Option to mute sounds (Teresa)
+
+Make page responsive to resizing (Joy & Michael)
+
+README - need to include instructions for staff, how to set up & run our app.
+Linux (Teresa)
+Mac (Joy)
+Windows (Noah)
+
+
+
