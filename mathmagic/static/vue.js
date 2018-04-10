@@ -118,6 +118,8 @@ $(document).ready( function() {
         if (this.score == 10) {
           this.pause_anim();
           this.status = 1;
+          var audio = new Audio('static/racewin.mp3');
+          audio.play();
         } else {
           this.new_problem();
         }
