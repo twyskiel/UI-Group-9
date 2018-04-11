@@ -10,10 +10,10 @@
 	<div v-if="mode == 'flash'">
     <div id="selection">
       <p>What kind of math would you like to practice today?</p>
-      <input type="checkbox" id="add-box" value=" + " v-model="opsChecked">Addition</input>
-      <input type="checkbox" id="sub-box" value=" - " v-model="opsChecked">Subtraction</input>
-      <input type="checkbox" id="mult-box" value=" * " v-model="opsChecked">Multiplication</input>
-      <input type="checkbox" id="divison-box" value=" / " v-model="opsChecked">Division</input>
+      <input type="checkbox" id="add-box" value=" + " v-model="opsChecked">Addition &nbsp</input>
+      <input type="checkbox" id="sub-box" value=" - " v-model="opsChecked">Subtraction &nbsp</input>
+      <input type="checkbox" id="mult-box" value=" * " v-model="opsChecked">Multiplication &nbsp</input>
+      <input type="checkbox" id="divison-box" value=" / " v-model="opsChecked">Division &nbsp</input>
       <p v-if="opsChecked.length===0">Please check at least one box!</p><p></p>
     </div>
     <div>
@@ -30,7 +30,8 @@
         <button class="btn btn_on" @click="new_problem" v-bind:disabled="opsChecked.length===0">Generate Problem!</button>
       </div>
       <div v-else-if="status < 0">
-        <p id = "back1" class = "flipped">Sorry, the right answer was ${ answer }</p>
+        <p id = "back1" class = "flipped">Sorry, the right answer should be 
+        ${ problem } = ${ answer }</p>
         <button class="btn btn_on" @click="new_problem" v-bind:disabled="opsChecked.length===0">Generate Problem!</button>
       </div>
     </div>
@@ -65,7 +66,7 @@
 			<br>
 			<img src="https://www.gamedevmarket.net/inc/uploads/0c3d3a1e1403b36c2120361ea93e03a799a96035.gif" id="p2"></img>
 		</div>
-		<br><button @click="to_flash" class="btn btn_on switch-btn">Switch to Flashcard mode</button>
+		<br><button v-if="not_running" @click="to_flash" class="btn btn_on switch-btn">Switch to Flashcard mode</button>
 		<div id="dimmer" v-if="status != 0">
 			<div id="alertcontainer" @click="restart_anim">
 				<div id="alertbox" v-if="status > 0">
