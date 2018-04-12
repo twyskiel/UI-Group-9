@@ -18,7 +18,8 @@ $(document).ready( function() {
       numAttempted: 0,
       numCorrect: 0,
       percentRight: 0,
-      highScore: 0,
+      highScore: 15,
+      highScoreAchieved: false,
 	    not_running: true,
 	    paused: true,
 	    intId: 0,
@@ -63,7 +64,16 @@ $(document).ready( function() {
           this.status = -1;
         }
         this.score += this.status;
-        if (this.score >= this.highScore) this.highScore = this.score;
+        if (this.score >= this.highScore) {
+          this.highScore = this.score;
+          if (!this.highScoreAchieved) {
+            this.highScoreAchieved = true;
+            if (this.soundOn) {
+              var audio = new Audio('static/highscore.mp3');
+              audio.play();
+            }
+          }
+        }
         this.numAttempted += 1;
         this.percentRight = (this.numCorrect/this.numAttempted) * 100;
       },

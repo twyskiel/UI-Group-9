@@ -42,9 +42,10 @@
 			<p><strong>Percent right:</strong> ${percentRight.toFixed(0)}%</p>
 			<button @click="reset_score" class="btn btn-danger">Reset</button>
 		</div>
-		<div id="highscore">
+		<div id="highscore" v-bind:style="{'border-color': (highScoreAchieved ? 'orange' : 'cyan'), 'background': (highScoreAchieved ? '#f4c373' : '#ccffff')}">
 			<p><strong>CURRENT HIGH SCORE:</strong></p>
 			<p id="hightext">${highScore}</p>
+			<p v-if="highScoreAchieved" id="myHighScore"><br>You got the high score!</p>
 		</div>
 		<br><button @click="to_race" class="btn btn_on switch-btn" v-bind:disabled="opsChecked.length===0">Switch to Race mode</button>
 	</div>

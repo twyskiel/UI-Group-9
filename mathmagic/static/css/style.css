@@ -71,6 +71,11 @@
 	font-size: 18px;
 }
 
+#myHighScore {
+	color: orange;
+	font-weight: bold;
+}
+
 #carbox {
 	position: relative;
 	top: 0;
