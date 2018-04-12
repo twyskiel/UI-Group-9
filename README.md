@@ -8,6 +8,16 @@ source venv/bin/activate
 pip install -r requirements.txt
 ~~~~
 
+To set up the virtual environment on Linux:
+~~~~
+sudo apt-get install python3-venv python3-wheel python3-setuptools
+python3 -m venv env
+source env/bin/activate
+pip install --upgrade pip setuptools wheel
+pip install -e .
+~~~~
+
+
 To run the project:
 ~~~~
 cd mathmagic
@@ -21,6 +31,13 @@ To run the project on MAC:
 cd mathmagic
 export FLASK_APP=__init__.py
 export PYTHONPATH="/UI-Group-9/mathmagic/config.py"
+flask run --host 0.0.0.0 --port 5000
+~~~~
+
+To run the project on Linux:
+~~~~
+export FLASK_APP=mathmagic
+export MATHMAGIC_SETTINGS=config.py
 flask run --host 0.0.0.0 --port 5000
 ~~~~
 
