@@ -244,3 +244,7 @@ html, body {
   height: 100%;
   width: 100%;
 }
+
+.sound-control {
+	font-size: 24px;
+}

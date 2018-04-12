@@ -23,7 +23,8 @@ $(document).ready( function() {
 	    paused: true,
 	    intId: 0,
 	    mode: "flash",
-      cpuPos: 0.0
+      cpuPos: 0.0,
+      soundOn: true
     },
     methods: {
       new_problem: function() {
@@ -48,13 +49,17 @@ $(document).ready( function() {
       },
       check_answer: function() {
         if (this.user_answer == this.answer) {
-          var audio = new Audio('static/correct.wav');
-          audio.play();
+          if (this.soundOn) {
+            var audio = new Audio('static/correct.wav');
+            audio.play();
+          }
           this.status = 1;
           this.numCorrect += 1;
         } else {
-          var audio = new Audio('static/wrong.wav');
-          audio.play();
+          if (this.soundOn) {
+            var audio = new Audio('static/wrong.wav');
+            audio.play();
+          }
           this.status = -1;
         }
         this.score += this.status;
@@ -118,8 +123,10 @@ $(document).ready( function() {
         if (this.score == 10) {
           this.pause_anim();
           this.status = 1;
-          var audio = new Audio('static/racewin.mp3');
-          audio.play();
+          if (this.soundOn) {
+            var audio = new Audio('static/racewin.mp3');
+            audio.play();
+          }
         } else {
           this.new_problem();
         }

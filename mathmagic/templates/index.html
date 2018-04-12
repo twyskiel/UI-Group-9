@@ -7,6 +7,8 @@
 
 {% block content %}
 <div id="gamecontent">
+	<span v-if="soundOn" class="glyphicon glyphicon-volume-up sound-control" @click="soundOn = false"></span>
+	<span v-else-if="!soundOn" class="glyphicon glyphicon-volume-off sound-control" @click="soundOn = true"></span>
 	<div v-if="mode == 'flash'">
     <div id="selection">
       <p>What kind of math would you like to practice today?</p>
@@ -30,7 +32,7 @@
         <button class="btn btn_on" @click="new_problem" v-bind:disabled="opsChecked.length===0">Generate Problem!</button>
       </div>
       <div v-else-if="status < 0">
-        <p id = "back1" class = "flipped">Sorry, the right answer should be 
+        <p id = "back1" class = "flipped">Sorry, the right answer should be
         ${ problem } = ${ answer }</p>
         <button class="btn btn_on" @click="new_problem" v-bind:disabled="opsChecked.length===0">Generate Problem!</button>
       </div>
