@@ -43,3 +43,19 @@ flask run --host 0.0.0.0 --port 5000
 
 
 Navigate to localhost:5000 in your browser
+
+
+
+Code Documentation:
+
+1. content (HTML)
+	- base.html
+	- create.html
+	- index.html
+	- login.html
+
+2. layout(CSS)
+	- style.css: This file describes the presentation of html files, including style, color, size and animations, etc. 
+
+3. functionality (JS)
+	- vue.js
