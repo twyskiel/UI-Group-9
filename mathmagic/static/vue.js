@@ -88,6 +88,11 @@ $(document).ready( function() {
   	  run: function() {
   		  if (this.cpuPos >= 1) {
   			  this.pause_anim();
+			  if (this.soundOn)
+			  {
+				  var audio = new Audio('static/racelose.m4a');
+				  audio.play();
+			  }
           this.status = -1;
   		  } else {
           var race_length = $("#gamecontent").width();
@@ -98,11 +103,16 @@ $(document).ready( function() {
   	  },
   	  begin_anim: function() {
         this.not_running = false;
-  		  this.paused = false;
-  		  this.cpuPos = 0.0;
+  		this.paused = false;
+  		this.cpuPos = 0.0;
         $("#p1").css("left", "10px");
         $("#p2").css("left", "10px");
-  		  this.intId = setInterval(this.run, 25);
+		if (this.soundOn)
+		{
+			var audio = new Audio('static/racestart.mp3');
+			audio.play();
+		}
+  		this.intId = setInterval(this.run, 25);
         this.new_problem();
   	  },
   	  pause_anim: function() {

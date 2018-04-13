@@ -65,9 +65,12 @@
 				<span>${problem} = </span>
 				<input v-focus id="user_input" v-model="user_answer" type="text" :disabled="paused" @keydown.enter="race_check_ans">
 			</div>
-			<img src="https://www.gamedevmarket.net/inc/uploads/f719d207aee6e1db9f15cac81c1bd59ca7856ccb.gif" id="p1"></img>
+			<img src="https://www.gamedevmarket.net/inc/uploads/f719d207aee6e1db9f15cac81c1bd59ca7856ccb.gif" class="car" id="p1"></img>
+			<hr class="road" id="r1">
 			<br>
-			<img src="https://www.gamedevmarket.net/inc/uploads/0c3d3a1e1403b36c2120361ea93e03a799a96035.gif" id="p2"></img>
+			<img src="https://www.gamedevmarket.net/inc/uploads/0c3d3a1e1403b36c2120361ea93e03a799a96035.gif" class="car" id="p2"></img>
+			<hr class="road" id="r2">
+			<img src="https://ih0.redbubble.net/image.471616606.7582/flat,800x800,075,f-c,0,75,800,331.u1.jpg" id="finish"></img>
 		</div>
 		<br><button v-if="not_running" @click="to_flash" class="btn btn_on switch-btn">Switch to Flashcard mode</button>
 		<div id="dimmer" v-if="status != 0">

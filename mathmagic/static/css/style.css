@@ -10,14 +10,14 @@
 	width: 225px;
 	position: absolute;
 	left: 15px;
-	top: 100px;
+	top: 120px;
 }
 
 #p2 {
 	width: 225px;
 	position: absolute;
 	left: 15px;
-	top: 195px;
+	top: 235px;
 }
 
 #gamecontent {
@@ -229,6 +229,34 @@
 	background-color:  rgb(255,255,255);
 	background-color: rgba(0,0,0,0.2);
 	border-radius:  5px;
+}
+
+#finish {
+	position: absolute;
+	top: 230px;
+	right: -150px;
+	transform: rotate(90deg);
+	height: 40px;
+	width: 280px;
+}
+
+.road {
+	height: 2px;
+	width: 97%;
+	border-color: #686868;
+	background-color: #686868;
+}
+
+#r1 {
+	position: absolute;
+	top: 190px;
+	left: 20px;
+}
+
+#r2{
+	position: absolute;
+	top: 305px;
+	left: 20px;
 }
 
 footer{
