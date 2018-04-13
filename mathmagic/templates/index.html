@@ -56,6 +56,9 @@
 			<div v-if="not_running" id="selection">
 				<p>Get 10 points before the CPU reaches the finish line!</p>
 				<p>Use the enter key to submit your answer for each question.</p>
+				<input type="radio" id="easy-button" value="easy" v-model="diff">Easy &nbsp</input>
+				<input type="radio" id="easy-button" value="medium" v-model="diff">Medium &nbsp</input>
+				<input type="radio" id="easy-button" value="hard" v-model="diff">Hard &nbsp</input>
 				<button class="btn btn-success" @click="begin_anim">Start Game!</button>
 			</div>
 			<div v-else>

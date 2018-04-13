@@ -25,12 +25,18 @@ $(document).ready( function() {
 	    intId: 0,
 	    mode: "flash",
       cpuPos: 0.0,
-      soundOn: true
+      soundOn: true,
+      diff: "medium"
     },
     computed: {
       floorScore: function() {
         if (this.score >= 0) return this.score
         else return 0
+      },
+      diffMult: function() {
+        if (this.diff == "easy") return 0.5
+        else if (this.diff == "medium") return 1
+        else if (this.diff == "hard") return 1.5
       }
     },
     methods: {
@@ -107,7 +113,7 @@ $(document).ready( function() {
           this.status = -1;
   		  } else {
           var race_length = $("#gamecontent").width();
-          this.cpuPos = this.cpuPos + (1/2400);
+          this.cpuPos = this.cpuPos + (1/2400)*this.diffMult;
           var position = (race_length-250) * this.cpuPos + 10;
   			  $("#p2").css("left", position + "px");
   		  }
