@@ -17,6 +17,13 @@ pip install --upgrade pip setuptools wheel
 pip install -e .
 ~~~~
 
+To set up the virtual environment on Windows using PowerShell:
+~~~~
+virtualenv venv
+.\venv\Scripts\activate
+pip install -r win_requirements
+~~~~
+
 
 To run the project on MAC:
 ~~~~
@@ -34,11 +41,11 @@ export MATHMAGIC_SETTINGS=config.py
 flask run --host 0.0.0.0 --port 5000
 ~~~~
 
-To run the project on Windows:
+To run the project on Windows using PowerShell:
 ~~~~
 cd mathmagic
-set $FLASK_APP="__init__.py"
-set $MATHMAGIC_SETTINGS="config.py"
+$env:FLASK_APP = "__init__.py"
+$env:MATHMAGIC_SETTINGS = "config.py"
 flask run --host 0.0.0.0 --port 5000
 ~~~~
 
