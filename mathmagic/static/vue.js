@@ -44,6 +44,11 @@ $(document).ready( function() {
         if (op == " + ") {
           this.answer = this.a + this.b
         } else if (op == " - ") {
+          if (this.b > this.a) {
+            var dummy = this.a
+            this.a = this.b
+            this.b = dummy
+          }
           this.answer = this.a - this.b
         } else if (op == " * ") {
           this.answer = this.a * this.b
