@@ -27,6 +27,12 @@ $(document).ready( function() {
       cpuPos: 0.0,
       soundOn: true
     },
+    computed: {
+      floorScore: function() {
+        if (this.score >= 0) return this.score
+        else return 0
+      }
+    },
     methods: {
       new_problem: function() {
         this.status = 0
@@ -138,7 +144,7 @@ $(document).ready( function() {
       race_check_ans: function() {
         this.check_answer();
         var race_length = $("#gamecontent").width();
-        var position = (race_length-250) * this.score / 10;
+        var position = (race_length-250) * this.floorScore / 10;
         $("#p1").css("left", position + "px");
         if (this.score == 10) {
           this.pause_anim();
