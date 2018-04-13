@@ -238,6 +238,7 @@
 	transform: rotate(90deg);
 	height: 40px;
 	width: 280px;
+	z-index: -1;
 }
 
 .road {
@@ -245,6 +246,7 @@
 	width: 97%;
 	border-color: #686868;
 	background-color: #686868;
+	z-index: -2;
 }
 
 #r1 {
