@@ -18,14 +18,6 @@ pip install -e .
 ~~~~
 
 
-To run the project:
-~~~~
-cd mathmagic
-export FLASK_APP=__init__.py
-export MATHMAGIC_SETTINGS=config.py
-flask run --host 0.0.0.0 --port 5000
-~~~~
-
 To run the project on MAC:
 ~~~~
 cd mathmagic
@@ -36,8 +28,17 @@ flask run --host 0.0.0.0 --port 5000
 
 To run the project on Linux:
 ~~~~
-export FLASK_APP=mathmagic
+cd mathmagic
+export FLASK_APP=__init__.py
 export MATHMAGIC_SETTINGS=config.py
+flask run --host 0.0.0.0 --port 5000
+~~~~
+
+To run the project on Windows:
+~~~~
+cd mathmagic
+set $FLASK_APP="__init__.py"
+set $MATHMAGIC_SETTINGS="config.py"
 flask run --host 0.0.0.0 --port 5000
 ~~~~
 
@@ -55,7 +56,7 @@ Code Documentation:
 	- login.html
 
 2. layout(CSS)
-	- style.css: This file describes the presentation of html files, including style, color, size and animations, etc. 
+	- style.css: This file describes the presentation of html files, including style, color, size and animations, etc.
 
 3. functionality (JS)
 	- vue.js
