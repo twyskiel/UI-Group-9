@@ -1,0 +1,29 @@
+create account
+sign in
+log out
+Flashcard mode: correct
+Flashcard mode: incorrect
+Flashcard mode: score is kept
+Flashcard mode: percent right
+Flashcard mode: get high score
+Flashcard mode: reset score
+Race mode: show that you can click on different difficulty settings. Not necessary to run a race on all three.
+Race mode: win
+Race mode: lose
+Option to mute sounds
+Resizing of window is responsive
+
+What else?
+
+
+
+Notes:
+Do like in the videos the staff posted for the assignments - hovering the mouse over areas to draw attention to them. 
+So after getting a flashcard right/wrong, go and hover over the score/percent right to show it has changed. 
+
+Voiceover/text over should not be needed.
+
+We have been warned not to edit the video so try to get it all in one "take"
+
+Want to make sure we show all functionality, since they will never run our app. The only way we can demostrate is through the video. Make it as long as necessary.
+Don't forget to show hover effects, sounds, etc.
