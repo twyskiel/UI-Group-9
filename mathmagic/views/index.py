@@ -58,6 +58,7 @@ def redirect_logout():
 
 @mathmagic.app.route('/accounts/create', methods=['GET', 'POST'])
 def create_user():
+    """Create new user account."""
     context = {}
 
     if request.method == 'GET':
@@ -66,6 +67,7 @@ def create_user():
     if request.method == 'POST':
         form = request.form
 
+        # Add username and password to database
         db = get_db()
         query = 'INSERT INTO users (username, password) VALUES (?, ?)'
         db.execute(query, (form['username'], form['password']))
@@ -78,6 +80,7 @@ def create_user():
 
 
 def verify_password(username, plaintext_pwd):
+    """Helper function to check if password entered is correct."""
     db = get_db()
     query = 'SELECT password FROM users WHERE username=?'
     user_entry = db.execute(query, (username,)).fetchone()
