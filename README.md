@@ -73,3 +73,11 @@ Code Documentation:
 
 3. functionality (JS)
 	- vue.js
+
+
+
+Back-end: Python/Flask, sqlite
+    - mathmagic/views/index.py
+    - mathmagic/db.py
+    - sql/schema.sql
+
