@@ -62,16 +62,16 @@ Navigate to localhost:5000 in your browser
 Code Documentation:
 
 1. content (HTML)
-	- base.html
-	- create.html
-	- index.html
-	- login.html
+	- base.html: create the hearder and footer that applies to all webpages
+	- create.html: create the page when click the "create account" button
+	- index.html: include all componets either in flash card mode or race mode based on the data from JS
+	- login.html: create the page when click the "log-in" button
 
 2. layout(CSS)
-	- style.css: This file describes the presentation of html files, including style, color, size and animations, etc.
+	- style.css: This file describes the presentation of all html files, including style, color, size and animations, etc. 
 
 3. functionality (JS)
-	- vue.js
+	- vue.js: listen to all the events that users create, run the functions in methods, and then send data back to the HTML files simultaneously. 
 
 
 
