@@ -25,6 +25,12 @@ pip install -r win_requirements
 ~~~~
 
 
+To create database
+~~~~
+mkdir -p var
+sqlite3 var/mathmagic.sqlite3 < sql/schema.sql
+~~~~
+
 To run the project on MAC:
 ~~~~
 cd mathmagic
