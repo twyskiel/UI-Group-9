@@ -42,7 +42,7 @@ flask run --host 0.0.0.0 --port 5000
 To run the project on Linux:
 ~~~~
 cd mathmagic
-export FLASK_APP=__init__.py
+export FLASK_APP=mathmagic
 export MATHMAGIC_SETTINGS=config.py
 flask run --host 0.0.0.0 --port 5000
 ~~~~
