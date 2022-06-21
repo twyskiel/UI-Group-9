@@ -34,7 +34,7 @@ jsonpointer==1.0
 lazy-object-proxy==1.2.2
 lxml==3.3.3
 mccabe==0.5.3
-numpy==1.8.2
+numpy==1.22.0
 oauth==1.0.1
 prettytable==0.7.2
 pyOpenSSL==0.13
